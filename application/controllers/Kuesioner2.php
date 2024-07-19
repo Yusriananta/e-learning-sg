@@ -94,7 +94,7 @@ class kuesioner2 extends CI_Controller {
       $no_user = $user['username'];
           $date = date('Y-m-d H:i:s');
           $kuesioner = $this->input->post('id_ujian',TRUE);
-          // $id_mhs_atasan = $this->input->post('id_mhs_atasan',TRUE);
+          $id_mhs_atasan = $this->input->post('id_mhs_atasan',TRUE);
           $opsi = $this->input->post('opsi',TRUE);
           $saran = $this->input->post('saran',TRUE);
           $this->kuesioner->aksiKegiatan($no_user, $date, $kuesioner, $opsi,$saran); 
@@ -112,10 +112,10 @@ class kuesioner2 extends CI_Controller {
         'subjudul'=> 'Detail Kuesioner',
       ];
   
-      $data['Sbaik'] = $this->ujian->getSBaik($id);
-      $data['baik'] = $this->ujian->getBaik($id);
-      $data['cukup'] = $this->ujian->getCukup($id);
-      $data['kurang'] = $this->ujian->getKurang($id);
+      $data['Sbaik'] = $this->kuesioner->getSBaik($id);
+      $data['baik'] = $this->kuesioner->getBaik($id);
+      $data['cukup'] = $this->kuesioner->getCukup($id);
+      $data['kurang'] = $this->kuesioner->getKurang($id);
       $data['saran'] = $this->db->get_where('s_kegiatan', ['id_ujian'=>$id])->result_array();
       $data['kegiatan'] = $this->db->get_where('m_ujian', ['id_ujian'=>$id])->row_array();
       
@@ -145,7 +145,6 @@ class kuesioner2 extends CI_Controller {
         $this->load->view('kuesioner2/isi', $data);
         $this->load->view('_templates/dashboard/_footer.php');
       }else{
-  
         $cek = $this->input->post('sbaik', true);
         print_r($cek);exit();
         $data = [ 'id_pegawai'=> 1234,

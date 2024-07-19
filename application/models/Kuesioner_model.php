@@ -11,8 +11,8 @@ class Kuesioner_model extends CI_Model {
 
     $query = "SELECT p_kuesioner2.*, m_ujian.nama_ujian, dosen.nama_dosen
     FROM p_kuesioner2
-    JOIN m_ujian ON p_kuesioner2.id_ujian = m_ujian.id_ujian
-    JOIN dosen ON p_kuesioner2.id_mhs_atasan = dosen.id_dosen";
+    LEFT JOIN m_ujian ON p_kuesioner2.id_ujian = m_ujian.id_ujian
+    LEFT JOIN dosen ON p_kuesioner2.id_mhs_atasan = dosen.id_dosen";
 
 return $this->db->query($query)->result_array();
   }

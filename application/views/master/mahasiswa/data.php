@@ -24,7 +24,7 @@
                         <th>Nomor Pegawai</th>
                         <th>Nama Peserta</th>
                         <th>Email</th>
-                        <th>Departemen</th>
+                        <th>Jabatan</th>
                         <th>Tipe pegawai</th>
                         <th width="100" class="text-center">Aksi</th>
                         <th width="100" class="text-center">
@@ -38,7 +38,7 @@
                         <th>Nomor Pegawai</th>
                         <th>Nama Peserta</th>
                         <th>Email</th>
-                        <th>Departemen</th>
+                        <th>Jabatan</th>
                         <th>Tipe pegawai</th>
                         <th width="100" class="text-center">Aksi</th>
                         <th width="100" class="text-center">

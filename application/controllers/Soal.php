@@ -33,7 +33,7 @@ class Soal extends CI_Controller {
         ];
         
         if($this->ion_auth->is_admin()){
-            //Jika admin maka tampilkan semua matkul
+            //Jika admin maka tampilkan semua   
             $data['matkul'] = $this->master->getAllMatkul();
         }else{
             //Jika bukan maka matkul dipilih otomatis sesuai matkul dosen

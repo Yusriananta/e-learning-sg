@@ -21,7 +21,7 @@
 			<?php 
 			$page = $this->uri->segment(1);
 			$master = ["jurusan", "kelas", "matkul", "dosen", "mahasiswa"];
-			$relasi = ["kelasdosen", "jurusanmatkul"];
+			$relasi = ["kelasdosen", "jurusanmatkul", "matkuldosen"];
 			$users = ["users"];
 			?>
 			<li class="<?= $page === 'dashboard' ? "active" : "" ?>"><a href="<?=base_url('dashboard')?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
@@ -42,7 +42,7 @@
 					<li class="<?=$page==='kelas'?"active":""?>">
 						<a href="<?=base_url('kelas')?>">
 							<i class="fa fa-circle-o"></i>
-							Master Departemen
+							Master Jabatan
 						</a>
 					</li>
 					<li class="<?=$page==='matkul'?"active":""?>">
@@ -75,7 +75,7 @@
 					<li class="<?=$page==='kelasdosen'?"active":""?>">
 						<a href="<?=base_url('kelasdosen')?>">
 							<i class="fa fa-circle-o"></i>
-							Departemen - Atasan
+							Jabatan - Atasan
 						</a>
 					</li>
 					<li class="<?=$page==='jurusanmatkul'?"active":""?>">
@@ -84,6 +84,12 @@
 							Tipe Pegawai - Organisasi Unit
 						</a>
 					</li>
+					<!-- <li class="<?=$page==='matkuldosen'?"active":""?>">
+						<a href="<?=base_url('matkuldosen')?>">
+							<i class="fa fa-circle-o"></i>
+							Unit - Atasan
+						</a>
+					</li> -->
 				</ul>
 			</li>
 			<?php endif; ?>

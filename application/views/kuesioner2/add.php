@@ -18,7 +18,7 @@
           <thead>
             <tr>
               <th scope="col" width="50px">No</th>
-              <th scope="col" width="100px">Atasan</th>
+              <!-- <th scope="col" width="100px">Atasan</th> -->
               <th scope="col" width="250px">Kegiatan</th>
               <th scope="col">Pertanyaan</th>
               <th scope="col">Aksi</th>
@@ -29,7 +29,7 @@
           <?php foreach ($pertanyaan as $key):?>
             <tr>
               <th><?php echo $no++;?></th>
-              <td><?php echo $key['nama_dosen'];?></td>
+              <!-- <td><?php echo $key['nama_dosen'];?></td> -->
               <th><?php echo $key['nama_ujian'];?></th>
               <td><?php echo $key['pertanyaan'];?></td>
               <td>

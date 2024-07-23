@@ -21,7 +21,7 @@
 			<?php 
 			$page = $this->uri->segment(1);
 			$master = ["jurusan", "kelas", "matkul", "dosen", "mahasiswa"];
-			$relasi = ["kelasdosen", "jurusanmatkul"];
+			$relasi = ["kelasdosen", "jurusanmatkul", "matkuldosen"];
 			$users = ["users"];
 			?>
 			<li class="<?= $page === 'dashboard' ? "active" : "" ?>"><a href="<?=base_url('dashboard')?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
@@ -42,7 +42,7 @@
 					<li class="<?=$page==='kelas'?"active":""?>">
 						<a href="<?=base_url('kelas')?>">
 							<i class="fa fa-circle-o"></i>
-							Master Departemen
+							Master Jabatan
 						</a>
 					</li>
 					<li class="<?=$page==='matkul'?"active":""?>">
@@ -75,7 +75,7 @@
 					<li class="<?=$page==='kelasdosen'?"active":""?>">
 						<a href="<?=base_url('kelasdosen')?>">
 							<i class="fa fa-circle-o"></i>
-							Departemen - Atasan
+							Jabatan - Atasan
 						</a>
 					</li>
 					<li class="<?=$page==='jurusanmatkul'?"active":""?>">
@@ -84,6 +84,12 @@
 							Tipe Pegawai - Organisasi Unit
 						</a>
 					</li>
+					<!-- <li class="<?=$page==='matkuldosen'?"active":""?>">
+						<a href="<?=base_url('matkuldosen')?>">
+							<i class="fa fa-circle-o"></i>
+							Unit - Atasan
+						</a>
+					</li> -->
 				</ul>
 			</li>
 			<?php endif; ?>
@@ -122,6 +128,20 @@
 				</a>
 			</li>
 			<?php endif; ?>
+			<?php if( $this->ion_auth->in_group('mahasiswa') ) : ?>
+			<li class="<?=$page==='kuesioner'?"active":""?>">
+				<a href="<?=base_url('kuesioner/listkuesioner')?>" rel="noopener noreferrer">
+				<i class="fa fa-list-ol"></i><span>Kuesioner</span>
+				</a>
+			</li>
+			<?php endif; ?>
+			<?php if( $this->ion_auth->in_group('mahasiswa') ) : ?>
+			<li class="<?=$page==='kuesioner2'?"active":""?>">
+				<a href="<?=base_url('kuesioner2/listkuesioner')?>" rel="noopener noreferrer">
+				<i class="fa fa-list-ol"></i><span>Kuesioner Lv2</span>
+				</a>
+			</li>
+			<?php endif; ?>
 			<?php if( !$this->ion_auth->in_group('mahasiswa') ) : ?>
 			<li class="header">REPORTS</li>
 			<li class="<?=$page==='hasilujian'?"active":""?>">
@@ -136,6 +156,13 @@
 					</a>
 				</li>
 				<?php endif; ?>
+				<?php if($this->ion_auth->is_admin()) : ?>
+        <li class="<?=$page==='kuesioner2'?"active":""?>">
+            <a href="<?=base_url('kuesioner2')?>" rel="noopener noreferrer">
+                <i class="fa fa-list-ol"></i> <span>Kuesioner Lv2</span>
+            </a>
+        </li>
+    <?php endif; ?>
 			<?php endif; ?>
 			<?php if($this->ion_auth->is_admin()) : ?>
 			<li class="header">ADMINISTRATOR</li>

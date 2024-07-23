@@ -21,7 +21,7 @@
 			<thead>
 				<tr>
 					<th>No.</th>
-					<th>Departemen</th>
+					<th>Jabatan</th>
 					<th>Tipe Pegawai</th>
 					<th class="text-center">
 						<input type="checkbox" id="select_all">

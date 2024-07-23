@@ -44,7 +44,7 @@
                     <td><?=$dosen->nama_matkul?></td>
                 </tr>
                 <tr>
-                    <th>Departemen</th>
+                    <th>Jabatan</th>
                     <td>
                         <ol class="pl-4">
                         <?php foreach ($kelas as $k) : ?>
@@ -64,11 +64,11 @@
             <div class="box-body">
                 <p>Selamat datang di platform Digital Library Berikut adalah panduan singkat sebagai atasan untuk membantu memaksimalkan pengalaman belajar para karyawan:</p>
                 <ul class="pl-4">
-                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, culpa.</li>
-                    <li>Provident dolores doloribus, fugit aperiam alias tempora saepe non omnis.</li>
-                    <li>Doloribus sed eum et repellat distinctio a repudiandae quia voluptates.</li>
-                    <li>Adipisci hic rerum illum odit possimus voluptatibus ad aliquid consequatur.</li>
-                    <li>Laudantium sapiente architecto excepturi beatae est minus, labore non libero.</li>
+                    <li>Login menggunakan akun @gmail untuk masuk ke platform</li>
+                    <li>Untuk Buat soal bisa masuk ke halaman bank soal</li>
+                    <li>Jika ingin melaksanakan ujian masuk ke halaman ujian dan klik tombol ujian baru</li>
+                    <li>Bila ada error atau kesalahan sistem bisa lapor ke admin Digital Library</li>
+                    <!-- <li>Laudantium sapiente architecto excepturi beatae est minus, labore non libero.</li> -->
                 </ul>
             </div>
         </div>
@@ -105,7 +105,7 @@
                     <td><?=$mahasiswa->nama_jurusan?></td>
                 </tr>
                 <tr>
-                    <th>Departemen</th>
+                    <th>Jabatan</th>
                     <td><?=$mahasiswa->nama_kelas?></td>
                 </tr>
             </table>
@@ -122,7 +122,6 @@
                     <li>Masuk menggunakan email SIG dan password NIK 4 digit terakhir.</li>
                     <li>Untuk mengerjakan soal bisa diakses di bagian Ujian.</li>
                     <li>Dihalaman kuesioner 1 dan 2, pertanyaan kuesioner akan muncul jika pengguna selesai mengerjakan ujian.</li>
-                    <li>Adipisci hic rerum illum odit possimus voluptatibus ad aliquid consequatur.</li>
                     <li>Kuesioner 2 dapat diakses jika pengguna selesai mengerjakan kuesioner 1.</li>
                     <li>Untuk materi video pembelajaran bisa akses dihalaman belajar</li>
                 </ul>

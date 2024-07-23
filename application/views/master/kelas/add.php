@@ -24,7 +24,7 @@
                     <thead>
                         <tr>
                             <th># No</th>
-                            <th>Departemen</th>
+                            <th>Jabatan</th>
                             <th>Tipe Pegawai</th>
                         </tr>
                     </thead>

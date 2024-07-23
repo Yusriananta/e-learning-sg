@@ -251,6 +251,14 @@ class Ujian_model extends CI_Model {
         return $this->db->query($query)->result_array();
     }
 
+    // public function getPertanyaan2()
+    // {
+    //     $query = " SELECT * FROM `p_kuesioner2`
+    //     ";
+
+    //     return $this->db->query($query)->result_array();
+    // }
+
     public function aksiKegiatan($pers_no, $date, $kuesioner, $opsi,$saran)
     {
         $this->db->trans_start();

@@ -530,17 +530,17 @@ class Ujian extends CI_Controller {
 
 public function logjawaban(){
 	$id_tes = $_GET['ujian_id'];
-	// $id_mhs = $_GET['id_mahasiswa'];
-	$mhs	= $this->mhs->id_mahasiswa;
-	// print_r($mhs);
+	$mhs = $this->mhs->id_mahasiswa;
+
+	$dhistori = $this->ujian->getLogSujian($id_tes, $mhs);
+
+	// print_r($dhistori);
 	// exit();
-
-	$dhistori = $this->ujian->getLogujian($id_tes);
-
-
 
 	$html = '';
 	$no = 1 ;
+
+	
 
 	// kirim data nilai dahulu
 	$data = [

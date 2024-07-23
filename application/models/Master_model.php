@@ -234,13 +234,15 @@ class Master_model extends CI_Model
         foreach ($dosen as $d) {
             $id_dosen[] = $d->dosen_id;
         }
-        if ($id_dosen === []) {
-            $id_dosen = null;
-        }
-
+    
         $this->db->select('id_dosen, nip, nama_dosen');
         $this->db->from('dosen');
-        $this->db->where_not_in('id_dosen', $id_dosen);
+        if (!empty($id_dosen)) {
+            $this->db->where_not_in('id_dosen', $id_dosen);
+        } else {
+            // Ensure no condition is applied if $id_dosen is empty
+            // Alternatively, this block can be omitted if no action is needed when $id_dosen is empty.
+        }
         return $this->db->get()->result();
     }
 
@@ -308,4 +310,17 @@ class Master_model extends CI_Model
         $query = $this->db->get()->result();
         return $query;
     }
+
+    // Data Matkul Dosen
+
+    public function getMatkuldosen()
+    {
+        $this->datatables->select('jurusan_matkul.id, matkul.id_matkul, matkul.nama_matkul, jurusan.id_jurusan, GROUP_CONCAT(jurusan.nama_jurusan) as nama_jurusan');
+        $this->datatables->from('jurusan_matkul');
+        $this->datatables->join('matkul', 'matkul_id=id_matkul');
+        $this->datatables->join('jurusan', 'jurusan_id=id_jurusan');
+        $this->datatables->group_by('matkul.nama_matkul');
+        return $this->datatables->generate();
+    }
+
 }

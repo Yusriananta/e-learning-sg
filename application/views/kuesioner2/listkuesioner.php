@@ -33,7 +33,7 @@
                             <td><?= $s['nama_ujian']; ?></td>
                             <td>
                                 <a href="<?= base_url('kuesioner2/isi/') . $s['id_ujian']; ?>" class="btn btn-xs btn-primary">
-                                    <i class="fa fa-sticky-note"></i> Detail
+                                    <i class="fa fa-sticky-note"></i> Isi Kuesioner
                                 </a>
                             </td>
                         </tr>

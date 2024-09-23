@@ -122,62 +122,58 @@ class Belajar extends CI_Controller{
 			$this->load->view('_templates/dashboard/_footer.php');
 		}
 
-		public function upload(){
-			
-			$this->load->library('upload');
-			$user = $this->ion_auth->user()->row();
-			$id_user = $user->user_id;
+public function upload() {
+    $this->load->library('upload');
+    $user = $this->ion_auth->user()->row();
+    $id_user = $user->user_id;
 
-			$config['upload_path']			= './assets/dist/video/';
-			$config['allowed_types']     		= '*';
-			$config['max_size']             	= 1024000; //max 100mb
+    $thumbnail = '';
+    $video = '';
 
-			$this->upload->initialize($config);
+    // Upload video
+    $config_video['upload_path'] = './assets/dist/video/';
+    $config_video['allowed_types'] = '*';
+    $config_video['max_size'] = 1024000; // max 100mb
 
-			if ($this->upload->do_upload('video')){
-				$data2 		= $this->upload->data();
-				$video	= $data2['file_name'];
-			}else{
-				$error2 = $this->upload->display_errors();
-			}
-			$config['upload_path']		= './assets/dist/thumbnail/';
-			$config['allowed_types']      = '*';
-			$config['max_size']           = 2048; //max 2mb
+    $this->upload->initialize($config_video);
 
-			// $this->load->library('upload', $config);
-			$this->upload->initialize($config);
+    if ($this->upload->do_upload('video')) {
+        $data_video = $this->upload->data();
+        $video = $data_video['file_name'];
+    } else {
+        $error_video = $this->upload->display_errors();
+    }
 
-			if ($this->upload->do_upload('thumbnail')){
-				$data1 		= $this->upload->data();
-				$thumbnail	= $data1['file_name'];
-			}else{
-				$error1 = $this->upload->display_errors();
-			}
+    // Upload thumbnail
+    $config_thumbnail['upload_path'] = './assets/dist/thumbnail/';
+    $config_thumbnail['allowed_types'] = '*';
+    $config_thumbnail['max_size'] = 2048; // max 2mb
 
-			$data = [
-				'uploader'	=> $id_user,
-				'creator'	=> $this->input->post('creator', TRUE),
-				'judul'		=> $this->input->post('judul', TRUE),
-				'deskripsi'	=> $this->input->post('deskripsi', TRUE),
-				'thumbnail'	=> $thumbnail,
-				'video'		=> $video,
-				'tanggal'	=> date('Y-m-d')
-			];
+    $this->upload->initialize($config_thumbnail);
 
-				$this->db->insert('tb_video', $data);
-				$this->session->set_flashdata('message', '
-				<script>
-				Swal.fire({
-					title: "Video Berhasil di Upload",
-					text: "You clicked the button!",
-					type: "success",
-					});
-				</script>
-				');
-				redirect('belajar/add');
+    if ($this->upload->do_upload('thumbnail')) {
+        $data_thumbnail = $this->upload->data();
+        $thumbnail = $data_thumbnail['file_name'];
+    } else {
+        $error_thumbnail = $this->upload->display_errors();
+    }
 
-					
-		}
+    // Save data to database
+    $data = [
+        'uploader' => $id_user,
+        'creator' => $this->input->post('creator', TRUE),
+        'judul' => $this->input->post('judul', TRUE),
+        'deskripsi' => $this->input->post('deskripsi', TRUE),
+        'thumbnail' => $thumbnail,
+        'video' => $video,
+        'tanggal' => date('Y-m-d')
+    ];
+
+    $this->db->insert('tb_video', $data);
+
+    // Return a JSON response
+    echo json_encode(['status' => 'success', 'message' => 'Video uploaded successfully!']);
+}
 
 		public function files_upload($filename){
 				$config['upload_path']          = './uploads/';

@@ -541,7 +541,6 @@ public function logjawaban(){
 	$no = 1 ;
 
 	
-
 	// kirim data nilai dahulu
 	$data = [
 			// 'ujian' => $ujian,

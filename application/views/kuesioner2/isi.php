@@ -1,5 +1,5 @@
 <?php echo $this->session->flashdata('message');?>
-<div class="box box-primary box-solid">
+<div class="box box-danger box-solid">
     <div class="box-header">
         <h3 class="box-title">
             Isi Kuesioner Dibawah ini
@@ -37,7 +37,7 @@
         </table>
         <label for="deskripsi" class="col-sm-4 mt-5 col-form-label">Saran</label>
         <textarea type="text" class="col-sm-4 form-control" id="saran" name="saran" require></textarea>  
-        <button type="submit" class="btn btn-primary mt-5">Submit</button>
+        <button type="submit" class="btn btn-success mt-5">Submit</button>
             </form>
     </div>
 </div>

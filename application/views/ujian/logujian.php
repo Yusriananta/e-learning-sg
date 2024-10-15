@@ -35,6 +35,12 @@
                     <div class="col-sm-4">
                         <button type="button" onclick="reload_ajax()" class="btn btn-sm btn-flat bg-purple"><i class="fa fa-refresh"></i> Reload</button>
                     </div>
+
+                    <!-- REVISI TAMBAH NILAI BETUL DAN SALAH -->
+                    <div class="col-md-8">
+                        Score
+                    </div>
+
                 </div>
         </div>
 

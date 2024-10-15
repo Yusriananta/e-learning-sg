@@ -146,7 +146,7 @@ class kuesioner2 extends CI_Controller {
         $this->load->view('_templates/dashboard/_footer.php');
       }else{
         $cek = $this->input->post('sbaik', true);
-        print_r($cek);exit();
+        // print_r($cek);exit();
         $data = [ 'id_pegawai'=> 1234,
             'email'=> 1,
             'nama'=> 1,

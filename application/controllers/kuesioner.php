@@ -134,7 +134,7 @@ class kuesioner extends CI_Controller{
         $this->ujian->aksiKegiatan($pers_no, $date, $kuesioner,$opsi,$saran);
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kuesioner berhasil dikirim</div>');
-		redirect('kuesioner2/listkuesioner');
+		redirect('kuesioner/listkuesioner');
 	}
 
 	public function kegiatanDetail($id)
@@ -168,9 +168,10 @@ class kuesioner extends CI_Controller{
 			$getmhsid = $this->db->get_where('mahasiswa',array('nim'=>$nopeg))->result_array();
 			$id_mahasiswa=$getmhsid['0']['id_mahasiswa'];
 			    // Cek apakah mahasiswa sudah mengerjakan kuesioner
-
+			
 			$list_kues = $this->ujian->getListkuesioner($id_mahasiswa);
-
+		// print_r($list_kues);
+		// exit();
 			// print_r($list_kues);
 			// exit();
 			

@@ -119,8 +119,7 @@ return $this->db->query($query)->result_array();
     $query = "SELECT * FROM h_ujian a left join m_ujian b on a.ujian_id=b.id_ujian
     left join s_kegiatan c on b.id_ujian=c.id_ujian
     where c.saran is not null and a.mahasiswa_id= $id_mahasiswa";
-    echo $query;
-    exit();
+
     // return $this->db->query($query)->result_array();
   }
 

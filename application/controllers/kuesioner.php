@@ -164,17 +164,19 @@ class kuesioner extends CI_Controller{
 			$this->akses_mahasiswa();
 			$user = $this->ion_auth->user()->row();
 			$nopeg = $user->username;
-			
+
+			$checckkuesioner=$this->db->get_where('s_kegiatan',array('pers_no'=>$nopeg))->result_array();
 			$getmhsid = $this->db->get_where('mahasiswa',array('nim'=>$nopeg))->result_array();
 			$id_mahasiswa=$getmhsid['0']['id_mahasiswa'];
 			    // Cek apakah mahasiswa sudah mengerjakan kuesioner
-			
 			$list_kues = $this->ujian->getListkuesioner($id_mahasiswa);
-		// print_r($list_kues);
-		// exit();
-			// print_r($list_kues);
-			// exit();
-			
+
+			if((count($checckkuesioner))>0){
+				$list_kues="";
+			}else{
+				$list_kues=$list_kues;
+			}
+						
 			$data = [
 				'user' => $user,
         'judul'  => 'Kuesioner',

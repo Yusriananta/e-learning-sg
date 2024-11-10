@@ -50,6 +50,7 @@ class HasilUjian extends CI_Controller {
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 	
+	// Tampilan semula detail hasil ujian
 	public function detail($id)
 	{
 		$ujian = $this->ujian->getUjianById($id);

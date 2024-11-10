@@ -171,11 +171,14 @@ class kuesioner extends CI_Controller{
 			    // Cek apakah mahasiswa sudah mengerjakan kuesioner
 			$list_kues = $this->ujian->getListkuesioner($id_mahasiswa);
 
-			if((count($checckkuesioner))>0){
-				$list_kues="";
-			}else{
-				$list_kues=$list_kues;
-			}
+			// print_r($checckkuesioner);
+			// exit();
+
+			// if((count($checckkuesioner))>0){
+			// 	$list_kues="";
+			// }else{
+			// 	$list_kues=$list_kues;
+			// }
 						
 			$data = [
 				'user' => $user,

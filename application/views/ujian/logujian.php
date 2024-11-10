@@ -37,9 +37,7 @@
                     </div>
 
                     <!-- REVISI TAMBAH NILAI BETUL DAN SALAH -->
-                    <div class="col-md-8">
-                        Score
-                    </div>
+
 
                 </div>
         </div>
@@ -57,7 +55,13 @@
                     </tr>        
                 </thead>
                 <tbody>
-                  <?php $no=1; foreach ($hasil as $s):?>
+
+                  <?php $no=1; 
+                  $total_score = 0; 
+                  $total_questions = count($hasil);
+                  $correct_answers = 0;
+
+                  foreach ($hasil as $s):?>
                     <tr>
                       <td><?= $no++;?></td>
                       <td><?= $s['soal'];?></td>
@@ -67,13 +71,21 @@
                           // Bandingkan jawaban peserta dengan kunci jawaban
                           if ($s['list_jawaban'] == $s['kunci_jawaban']) {
                             echo "<span class='badge bg-green'> Benar </span>";
+                            $correct_answers++;
                           } else {
                               echo "<span class='badge bg-red'> Salah </span>";
                           }
                           ?>
                       </td>
+                      
                     </tr>
-                  <?php endforeach;?>
+                    <?php endforeach;?>
+                    <?php 
+                    // Hitung persentase skor
+                    $score_percentage = ($correct_answers / $total_questions) * 100;?>
+                    <div class="box-body-sm-9">
+                        <h4>Skor Akhir: <?= round($score_percentage, 2); ?></h4>
+                    </div>
                 </tbody>
 
                 </table>
